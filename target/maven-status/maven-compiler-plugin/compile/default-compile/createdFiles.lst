@@ -1,0 +1,11 @@
+com\sergioarboleda\Reto2C4\app\services\HairProductService.class
+com\sergioarboleda\Reto2C4\app\services\UserService.class
+com\sergioarboleda\Reto2C4\app\repositories\HairProductRepository.class
+com\sergioarboleda\Reto2C4\app\controller\UserController.class
+com\sergioarboleda\Reto2C4\app\controller\HairProductController.class
+com\sergioarboleda\Reto2C4\Reto2C4Application.class
+com\sergioarboleda\Reto2C4\app\model\User.class
+com\sergioarboleda\Reto2C4\app\model\HairProduct.class
+com\sergioarboleda\Reto2C4\app\repositories\crud\HairProductCrudRepository.class
+com\sergioarboleda\Reto2C4\app\repositories\crud\UserCrudRepository.class
+com\sergioarboleda\Reto2C4\app\repositories\UserRepository.class
