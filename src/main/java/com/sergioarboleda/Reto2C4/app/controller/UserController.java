@@ -21,6 +21,8 @@ public class UserController {
     private UserService service;
 
     @GetMapping("/all")
+    @PutMapping("/all")
+    @DeleteMapping("/all")
     public List<User> getUsers(){
         return service.getAll();
     }
@@ -31,16 +33,16 @@ public class UserController {
         return service.save(user);
     }
     
-    @PutMapping("/update")
+    @PutMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public User update(@RequestBody User user){
-        return service.update(user);
+      return service.update(user);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/all/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete (@PathVariable("id") Integer id){
-        return service.delete(id);
+      return service.delete(id);
     }
 
 

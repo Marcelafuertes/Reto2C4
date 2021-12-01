@@ -26,6 +26,10 @@ public class HairProductService {
         return repository.getAll();
     }
     
+    public Optional<HairProduct> getByReference(String reference){
+         return repository.getByReference(reference);
+    }
+    
     /**
      * 
      * @param product
@@ -43,6 +47,57 @@ public HairProduct save(HairProduct product){
             }
         }
     }
+    public HairProduct update(HairProduct product){
+        Optional<HairProduct> existsProduct = repository.getByReference(product.getReference());
+        if(existsProduct.isPresent()){
+            if (product.getReference() !=null){
+                existsProduct.get().setReference(product.getReference());                
+            }
+            if (product.getName() !=null){
+                existsProduct.get().setName(product.getName()); 
+            }
+          //  if (user.getBirthtDay() !=null){
+          //      existUser.get().setBirthtDay(user.getBirthtDay());
+           // }
+            //if (user.getMonthBirthtDay() !=null){
+              //  existUser.get().setMonthBirthtDay(user.getMonthBirthtDay()); 
+            //}
+            if (product.getBrand() !=null){
+                existsProduct.get().setBrand(product.getBrand());                
+            }
+            if (product.getCategory() !=null){
+                existsProduct.get().setCategory(product.getCategory()); 
+            }
+            if (product.getDescription() !=null){
+                existsProduct.get().setDescription(product.getDescription());
+            }
+            if (product.getPrice() !=0){
+                existsProduct.get().setPrice(product.getPrice()); 
+            }
+            if (product.getQuantity() !=0){
+                existsProduct.get().setQuantity(product.getQuantity()); 
+            }
+            if (product.getPhotography() !=null){
+                existsProduct.get().setPhotography(product.getPhotography());
+            }
+            return repository.save(existsProduct.get());
 
+        }else{
+            return product;
+        }
+    }
+    
+    /**
+     * 
+     * @param id
+     * @return
+     */
+    public boolean delete(String reference){
+        Boolean aBoolean = getByReference(reference).map(product -> {
+            repository.delete(product.getReference());
+            return true;
+        }).orElse(false);
+        return aBoolean;
+    }
     
 }
