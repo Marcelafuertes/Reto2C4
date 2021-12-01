@@ -21,13 +21,12 @@ public class UserController {
     private UserService service;
 
     @GetMapping("/all")
-    @PutMapping("/all")
-    @DeleteMapping("/all")
+
     public List<User> getUsers(){
         return service.getAll();
     }
 
-    @PostMapping("/new")
+    @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public User save(@RequestBody User user){
         return service.save(user);

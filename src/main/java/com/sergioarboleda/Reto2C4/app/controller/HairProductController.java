@@ -38,7 +38,7 @@ public class HairProductController {
         return service.getAll();
     }
 
-    @PostMapping("/new")
+    @PostMapping("/all")
     @ResponseStatus(HttpStatus.CREATED)
     public HairProduct save(@RequestBody HairProduct hairproduct){
         return service.save(hairproduct);
